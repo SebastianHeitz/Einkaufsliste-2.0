@@ -14,34 +14,33 @@ namespace Einkaufsliste
 {
 	public partial class Form1 : Form
 	{
+		List<ProductModel> products = new List<ProductModel>();
+
 		public Form1()
 		{
 			InitializeComponent();
+
+			LoadProductList();
 		}
 
-		private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+		private void LoadProductList()
 		{
-			// Diese Funktion zeigt schön wie man den Wert aus einem CheckedItem auslesen kann.
+			products = SqliteDataAccess.LoadProducts();
 
-			if (listView1.SelectedIndices.Count <= 0)
-			{
-				return;
-			}
-			int intselectedindex = listView1.SelectedIndices[0];
-			if (intselectedindex >= 0)
-			{
-				String text = listView1.Items[intselectedindex].Text;
+			FillListBoxWithProducts();
 
-				//do something
-				MessageBox.Show(listView1.Items[intselectedindex].Text); 
-			}
 		}
 
-		private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
+		private void FillListBoxWithProducts()
 		{
-			// Entweder wird an dieser Stelle bei jedem Click in die Checkbox die Datenbank aktualisiert oder 
-			// diese Eventlistener ist unsinnig. Ich könnte auch erst beim Erstellen der Liste die CheckedItems wegschreiben.
-			// Nachteil: Wenn das Programm abstürzt oder geschlossen wird, sind alle zwischenzeitlich gemachten Einstellungen weg.
+			listBox_Products.DataSource = null;
+			listBox_Products.DataSource = products;
+			listBox_Products.DisplayMember = "produktname";
+			for (int i = 0; i <= 5; i++)
+			{
+				listBox_Products.SetSelected(i, true);
+			}
+			listBox_Products.SetSelected(0, false);
 		}
 
 		private void CreateExcelSheet()
@@ -74,6 +73,11 @@ namespace Einkaufsliste
 		private void txtbox_categoryName_Enter(object sender, EventArgs e)
 		{
 			txtbox_categoryName.Text = "";
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			//test = listBox_Products.SelectedItems;
 		}
 	}
 }

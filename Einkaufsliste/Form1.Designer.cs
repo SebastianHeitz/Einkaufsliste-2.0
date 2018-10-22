@@ -28,43 +28,20 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Ambrosia"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
-			this.listView1 = new System.Windows.Forms.ListView();
-			this.columnHeader_articleName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.btn_createShoppinglist = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.btn_addArticle = new System.Windows.Forms.Button();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.txtbox_articleName = new System.Windows.Forms.TextBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.txtbox_categoryName = new System.Windows.Forms.TextBox();
 			this.btn_createCategory = new System.Windows.Forms.Button();
+			this.txtbox_categoryName = new System.Windows.Forms.TextBox();
+			this.comboBox2 = new System.Windows.Forms.ComboBox();
+			this.listBox_Products = new System.Windows.Forms.ListBox();
+			this.button1 = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// listView1
-			// 
-			this.listView1.CheckBoxes = true;
-			this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader_articleName});
-			listViewItem1.StateImageIndex = 0;
-			this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-			this.listView1.Location = new System.Drawing.Point(287, 12);
-			this.listView1.Name = "listView1";
-			this.listView1.Size = new System.Drawing.Size(566, 532);
-			this.listView1.TabIndex = 0;
-			this.listView1.UseCompatibleStateImageBehavior = false;
-			this.listView1.View = System.Windows.Forms.View.Details;
-			this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
-			this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-			// 
-			// columnHeader_articleName
-			// 
-			this.columnHeader_articleName.Text = "Artikel";
-			this.columnHeader_articleName.Width = 300;
 			// 
 			// btn_createShoppinglist
 			// 
@@ -72,7 +49,7 @@
 			this.btn_createShoppinglist.Name = "btn_createShoppinglist";
 			this.btn_createShoppinglist.Size = new System.Drawing.Size(158, 23);
 			this.btn_createShoppinglist.TabIndex = 1;
-			this.btn_createShoppinglist.Text = "Einkaufslist erstellen (Excel)";
+			this.btn_createShoppinglist.Text = "Einkaufsliste erstellen (Excel)";
 			this.btn_createShoppinglist.UseVisualStyleBackColor = true;
 			this.btn_createShoppinglist.Click += new System.EventHandler(this.btn_createShoppinglist_Click);
 			// 
@@ -126,15 +103,6 @@
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Neue Kategorie erstellen";
 			// 
-			// txtbox_categoryName
-			// 
-			this.txtbox_categoryName.Location = new System.Drawing.Point(7, 37);
-			this.txtbox_categoryName.Name = "txtbox_categoryName";
-			this.txtbox_categoryName.Size = new System.Drawing.Size(200, 20);
-			this.txtbox_categoryName.TabIndex = 0;
-			this.txtbox_categoryName.Text = "Kategoriename hier eingeben";
-			this.txtbox_categoryName.Enter += new System.EventHandler(this.txtbox_categoryName_Enter);
-			// 
 			// btn_createCategory
 			// 
 			this.btn_createCategory.Location = new System.Drawing.Point(7, 91);
@@ -144,17 +112,58 @@
 			this.btn_createCategory.Text = "Kategorie erstellen";
 			this.btn_createCategory.UseVisualStyleBackColor = true;
 			// 
+			// txtbox_categoryName
+			// 
+			this.txtbox_categoryName.Location = new System.Drawing.Point(7, 37);
+			this.txtbox_categoryName.Name = "txtbox_categoryName";
+			this.txtbox_categoryName.Size = new System.Drawing.Size(200, 20);
+			this.txtbox_categoryName.TabIndex = 0;
+			this.txtbox_categoryName.Text = "Kategoriename hier eingeben";
+			this.txtbox_categoryName.Enter += new System.EventHandler(this.txtbox_categoryName_Enter);
+			// 
+			// comboBox2
+			// 
+			this.comboBox2.FormattingEnabled = true;
+			this.comboBox2.Location = new System.Drawing.Point(287, 12);
+			this.comboBox2.Name = "comboBox2";
+			this.comboBox2.Size = new System.Drawing.Size(246, 21);
+			this.comboBox2.TabIndex = 4;
+			this.comboBox2.Text = "Kategorie wählen ...";
+			// 
+			// listBox_Products
+			// 
+			this.listBox_Products.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.listBox_Products.FormattingEnabled = true;
+			this.listBox_Products.ItemHeight = 20;
+			this.listBox_Products.Location = new System.Drawing.Point(486, 51);
+			this.listBox_Products.Name = "listBox_Products";
+			this.listBox_Products.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+			this.listBox_Products.Size = new System.Drawing.Size(349, 504);
+			this.listBox_Products.TabIndex = 5;
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(486, 592);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 7;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(865, 556);
+			this.ClientSize = new System.Drawing.Size(973, 648);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.listBox_Products);
+			this.Controls.Add(this.comboBox2);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.btn_createShoppinglist);
-			this.Controls.Add(this.listView1);
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "Einkaufslisten-Generator";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
@@ -164,9 +173,6 @@
 		}
 
 		#endregion
-
-		private System.Windows.Forms.ListView listView1;
-		private System.Windows.Forms.ColumnHeader columnHeader_articleName;
 		private System.Windows.Forms.Button btn_createShoppinglist;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.TextBox txtbox_articleName;
@@ -175,6 +181,9 @@
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Button btn_createCategory;
 		private System.Windows.Forms.TextBox txtbox_categoryName;
+		private System.Windows.Forms.ComboBox comboBox2;
+		private System.Windows.Forms.ListBox listBox_Products;
+		private System.Windows.Forms.Button button1;
 	}
 }
 
